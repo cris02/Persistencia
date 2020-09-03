@@ -39,4 +39,19 @@ public class UsuarioControlador extends FabricaControladorAbstracto<Usuario>{
             }
         }
     }
+    
+    //filtrar roles de tipo superadmin y analistas (rol 1 y 3)
+    public List<Usuario> filtrarUsuariosPorRol(Integer filtro1, Integer filtro2) {
+        EntityManager em = obtenerManejadorEntidades();
+        try {
+            Query q = em.createQuery("SELECT user FROM Usuario user WHERE user.rolIdFk.rolIdPk = :filtro1 OR user.rolIdFk.rolIdPk = :filtro2");
+            q.setParameter("filtro1", filtro1);
+            q.setParameter("filtro2", filtro2);
+            return q.getResultList();
+        } finally { 
+           if (em.isOpen()) {
+                em.close();
+            }
+        }
+    }
 }

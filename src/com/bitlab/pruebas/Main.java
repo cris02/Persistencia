@@ -20,7 +20,7 @@ public class Main {
         
         UsuarioControlador usuarioControlador = new UsuarioControlador();
               
-        lisUser = usuarioControlador.filtrarUsuariosPorRol(4);
+        lisUser = usuarioControlador.filtrarUsuariosPorRol(1, 3);
         
         for (Usuario usuario : lisUser) {
             System.out.println("El nombre del usario es : " + usuario.getUsuUser());

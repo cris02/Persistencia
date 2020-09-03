@@ -32,7 +32,6 @@ import javax.persistence.Table;
     @NamedQuery(name = "Profesor.findAll", query = "SELECT p FROM Profesor p")
     , @NamedQuery(name = "Profesor.findByProIdPk", query = "SELECT p FROM Profesor p WHERE p.proIdPk = :proIdPk")
     , @NamedQuery(name = "Profesor.findByProNombres", query = "SELECT p FROM Profesor p WHERE p.proNombres = :proNombres")
-    , @NamedQuery(name = "Profesor.findByProApellidos", query = "SELECT p FROM Profesor p WHERE p.proApellidos = :proApellidos")
     , @NamedQuery(name = "Profesor.findByProTelefono", query = "SELECT p FROM Profesor p WHERE p.proTelefono = :proTelefono")
     , @NamedQuery(name = "Profesor.findByProCorreo", query = "SELECT p FROM Profesor p WHERE p.proCorreo = :proCorreo")
     , @NamedQuery(name = "Profesor.findByProDireccion", query = "SELECT p FROM Profesor p WHERE p.proDireccion = :proDireccion")
@@ -47,8 +46,6 @@ public class Profesor implements Serializable {
     private Integer proIdPk;
     @Column(name = "PRO_NOMBRES", length = 50)
     private String proNombres;
-    @Column(name = "PRO_APELLIDOS", length = 50)
-    private String proApellidos;
     @Column(name = "PRO_TELEFONO", length = 13)
     private String proTelefono;
     @Column(name = "PRO_CORREO", length = 60)
@@ -86,14 +83,6 @@ public class Profesor implements Serializable {
 
     public void setProNombres(String proNombres) {
         this.proNombres = proNombres;
-    }
-
-    public String getProApellidos() {
-        return proApellidos;
-    }
-
-    public void setProApellidos(String proApellidos) {
-        this.proApellidos = proApellidos;
     }
 
     public String getProTelefono() {

@@ -35,7 +35,6 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Evaluador.findAll", query = "SELECT e FROM Evaluador e")
     , @NamedQuery(name = "Evaluador.findByEvaIdPk", query = "SELECT e FROM Evaluador e WHERE e.evaIdPk = :evaIdPk")
     , @NamedQuery(name = "Evaluador.findByEvaNombres", query = "SELECT e FROM Evaluador e WHERE e.evaNombres = :evaNombres")
-    , @NamedQuery(name = "Evaluador.findByEvaApellidos", query = "SELECT e FROM Evaluador e WHERE e.evaApellidos = :evaApellidos")
     , @NamedQuery(name = "Evaluador.findByEvaTel", query = "SELECT e FROM Evaluador e WHERE e.evaTel = :evaTel")
     , @NamedQuery(name = "Evaluador.findByEvaDui", query = "SELECT e FROM Evaluador e WHERE e.evaDui = :evaDui")
     , @NamedQuery(name = "Evaluador.findByEvaDireccion", query = "SELECT e FROM Evaluador e WHERE e.evaDireccion = :evaDireccion")
@@ -52,8 +51,6 @@ public class Evaluador implements Serializable {
     private Integer evaIdPk;
     @Column(name = "EVA_NOMBRES", length = 50)
     private String evaNombres;
-    @Column(name = "EVA_APELLIDOS", length = 50)
-    private String evaApellidos;
     @Column(name = "EVA_TEL", length = 13)
     private String evaTel;
     @Column(name = "EVA_DUI", length = 12)
@@ -98,14 +95,6 @@ public class Evaluador implements Serializable {
 
     public void setEvaNombres(String evaNombres) {
         this.evaNombres = evaNombres;
-    }
-
-    public String getEvaApellidos() {
-        return evaApellidos;
-    }
-
-    public void setEvaApellidos(String evaApellidos) {
-        this.evaApellidos = evaApellidos;
     }
 
     public String getEvaTel() {

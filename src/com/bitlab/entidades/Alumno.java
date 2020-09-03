@@ -35,7 +35,6 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Alumno.findAll", query = "SELECT a FROM Alumno a")
     , @NamedQuery(name = "Alumno.findByAluIdPk", query = "SELECT a FROM Alumno a WHERE a.aluIdPk = :aluIdPk")
     , @NamedQuery(name = "Alumno.findByAluNombres", query = "SELECT a FROM Alumno a WHERE a.aluNombres = :aluNombres")
-    , @NamedQuery(name = "Alumno.findByAluApellidos", query = "SELECT a FROM Alumno a WHERE a.aluApellidos = :aluApellidos")
     , @NamedQuery(name = "Alumno.findByAluEdad", query = "SELECT a FROM Alumno a WHERE a.aluEdad = :aluEdad")
     , @NamedQuery(name = "Alumno.findByAluTelefono", query = "SELECT a FROM Alumno a WHERE a.aluTelefono = :aluTelefono")
     , @NamedQuery(name = "Alumno.findByAluDui", query = "SELECT a FROM Alumno a WHERE a.aluDui = :aluDui")
@@ -53,8 +52,6 @@ public class Alumno implements Serializable {
     private Integer aluIdPk;
     @Column(name = "ALU_NOMBRES", length = 50)
     private String aluNombres;
-    @Column(name = "ALU_APELLIDOS", length = 50)
-    private String aluApellidos;
     @Column(name = "ALU_EDAD")
     private Short aluEdad;
     @Column(name = "ALU_TELEFONO", length = 13)
@@ -105,14 +102,6 @@ public class Alumno implements Serializable {
 
     public void setAluNombres(String aluNombres) {
         this.aluNombres = aluNombres;
-    }
-
-    public String getAluApellidos() {
-        return aluApellidos;
-    }
-
-    public void setAluApellidos(String aluApellidos) {
-        this.aluApellidos = aluApellidos;
     }
 
     public Short getAluEdad() {

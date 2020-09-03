@@ -7,6 +7,7 @@ package com.bitlab.entidades;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +20,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -30,7 +33,8 @@ import javax.persistence.Table;
     @NamedQuery(name = "DetAluTarea.findAll", query = "SELECT d FROM DetAluTarea d")
     , @NamedQuery(name = "DetAluTarea.findByDetAluTarIdPk", query = "SELECT d FROM DetAluTarea d WHERE d.detAluTarIdPk = :detAluTarIdPk")
     , @NamedQuery(name = "DetAluTarea.findByDetAluTarNota", query = "SELECT d FROM DetAluTarea d WHERE d.detAluTarNota = :detAluTarNota")
-    , @NamedQuery(name = "DetAluTarea.findByDetAluTarObservacion", query = "SELECT d FROM DetAluTarea d WHERE d.detAluTarObservacion = :detAluTarObservacion")})
+    , @NamedQuery(name = "DetAluTarea.findByDetAluTarObservacion", query = "SELECT d FROM DetAluTarea d WHERE d.detAluTarObservacion = :detAluTarObservacion")
+    , @NamedQuery(name = "DetAluTarea.findByDetAluTarFechaCalificacion", query = "SELECT d FROM DetAluTarea d WHERE d.detAluTarFechaCalificacion = :detAluTarFechaCalificacion")})
 public class DetAluTarea implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,12 +44,13 @@ public class DetAluTarea implements Serializable {
     @Column(name = "DET_ALU_TAR_ID_PK", nullable = false)
     private Integer detAluTarIdPk;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
-    @Column(name = "DET_ALU_TAR_NOTA", nullable = false, precision = 3, scale = 2)
+    @Column(name = "DET_ALU_TAR_NOTA", precision = 3, scale = 2)
     private BigDecimal detAluTarNota;
-    @Basic(optional = false)
-    @Column(name = "DET_ALU_TAR_OBSERVACION", nullable = false, length = 500)
+    @Column(name = "DET_ALU_TAR_OBSERVACION", length = 500)
     private String detAluTarObservacion;
+    @Column(name = "DET_ALU_TAR_FECHA_CALIFICACION")
+    @Temporal(TemporalType.DATE)
+    private Date detAluTarFechaCalificacion;
     @JoinColumn(name = "ALU_ID_FK", referencedColumnName = "ALU_ID_PK", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Alumno aluIdFk;
@@ -58,12 +63,6 @@ public class DetAluTarea implements Serializable {
 
     public DetAluTarea(Integer detAluTarIdPk) {
         this.detAluTarIdPk = detAluTarIdPk;
-    }
-
-    public DetAluTarea(Integer detAluTarIdPk, BigDecimal detAluTarNota, String detAluTarObservacion) {
-        this.detAluTarIdPk = detAluTarIdPk;
-        this.detAluTarNota = detAluTarNota;
-        this.detAluTarObservacion = detAluTarObservacion;
     }
 
     public Integer getDetAluTarIdPk() {
@@ -88,6 +87,14 @@ public class DetAluTarea implements Serializable {
 
     public void setDetAluTarObservacion(String detAluTarObservacion) {
         this.detAluTarObservacion = detAluTarObservacion;
+    }
+
+    public Date getDetAluTarFechaCalificacion() {
+        return detAluTarFechaCalificacion;
+    }
+
+    public void setDetAluTarFechaCalificacion(Date detAluTarFechaCalificacion) {
+        this.detAluTarFechaCalificacion = detAluTarFechaCalificacion;
     }
 
     public Alumno getAluIdFk() {

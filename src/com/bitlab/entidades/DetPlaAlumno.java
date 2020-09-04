@@ -56,9 +56,9 @@ public class DetPlaAlumno implements Serializable {
     private String detPlaAluObservacion;
     @Column(name = "DET_PLA_ALU_TIPOPLAZA", length = 40)
     private String detPlaAluTipoplaza;
-    @JoinColumn(name = "ALU_ID_FK", referencedColumnName = "ALU_ID_PK", nullable = false)
+    @JoinColumn(name = "PER_ID_FK", referencedColumnName = "PER_ID_PK", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    private Alumno aluIdFk;
+    private Perfil perIdFk;
     @JoinColumn(name = "EST_PLA_ID_FK", referencedColumnName = "EST_PLA_ID_PK", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private EstPlaza estPlaIdFk;
@@ -129,12 +129,12 @@ public class DetPlaAlumno implements Serializable {
         this.detPlaAluTipoplaza = detPlaAluTipoplaza;
     }
 
-    public Alumno getAluIdFk() {
-        return aluIdFk;
+    public Perfil getPerIdFk() {
+        return perIdFk;
     }
 
-    public void setAluIdFk(Alumno aluIdFk) {
-        this.aluIdFk = aluIdFk;
+    public void setPerIdFk(Perfil perIdFk) {
+        this.perIdFk = perIdFk;
     }
 
     public EstPlaza getEstPlaIdFk() {

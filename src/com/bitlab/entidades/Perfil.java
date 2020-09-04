@@ -68,6 +68,8 @@ public class Perfil implements Serializable {
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Alumno aluIdFk;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "perIdFk", fetch = FetchType.EAGER)
+    private List<DetPlaAlumno> detPlaAlumnoList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "perIdFk", fetch = FetchType.EAGER)
     private List<DetPerTecnologia> detPerTecnologiaList;
 
     public Perfil() {
@@ -147,6 +149,14 @@ public class Perfil implements Serializable {
 
     public void setAluIdFk(Alumno aluIdFk) {
         this.aluIdFk = aluIdFk;
+    }
+
+    public List<DetPlaAlumno> getDetPlaAlumnoList() {
+        return detPlaAlumnoList;
+    }
+
+    public void setDetPlaAlumnoList(List<DetPlaAlumno> detPlaAlumnoList) {
+        this.detPlaAlumnoList = detPlaAlumnoList;
     }
 
     public List<DetPerTecnologia> getDetPerTecnologiaList() {

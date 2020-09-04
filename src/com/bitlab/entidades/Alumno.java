@@ -71,8 +71,6 @@ public class Alumno implements Serializable {
     private List<Respuesta> respuestaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluIdFk", fetch = FetchType.EAGER)
     private List<Perfil> perfilList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluIdFk", fetch = FetchType.EAGER)
-    private List<DetPlaAlumno> detPlaAlumnoList;
     @JoinColumn(name = "USU_ID_FK", referencedColumnName = "USU_ID_PK", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Usuario usuIdFk;
@@ -174,14 +172,6 @@ public class Alumno implements Serializable {
 
     public void setPerfilList(List<Perfil> perfilList) {
         this.perfilList = perfilList;
-    }
-
-    public List<DetPlaAlumno> getDetPlaAlumnoList() {
-        return detPlaAlumnoList;
-    }
-
-    public void setDetPlaAlumnoList(List<DetPlaAlumno> detPlaAlumnoList) {
-        this.detPlaAlumnoList = detPlaAlumnoList;
     }
 
     public Usuario getUsuIdFk() {

@@ -3,14 +3,12 @@
   <persistence-unit name="PersistenciaPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.bitlab.entidades.Tarea</class>
-    <class>com.bitlab.entidades.EstActividad</class>
     <class>com.bitlab.entidades.Curso</class>
     <class>com.bitlab.entidades.Respuesta</class>
     <class>com.bitlab.entidades.DetAluActseleccion</class>
     <class>com.bitlab.entidades.Rol</class>
     <class>com.bitlab.entidades.Usuario</class>
     <class>com.bitlab.entidades.Profesor</class>
-    <class>com.bitlab.entidades.ActSeleccion</class>
     <class>com.bitlab.entidades.Plaza</class>
     <class>com.bitlab.entidades.Evaluador</class>
     <class>com.bitlab.entidades.Pregunta</class>
@@ -20,7 +18,6 @@
     <class>com.bitlab.entidades.EstPerfil</class>
     <class>com.bitlab.entidades.DetAluTarea</class>
     <class>com.bitlab.entidades.DetPlaAlumno</class>
-    <class>com.bitlab.entidades.Perfil</class>
     <class>com.bitlab.entidades.Alumno</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://35.239.6.108:3306/BITLABCURSOS"/>

@@ -26,7 +26,7 @@ public class PerfilControlador extends FabricaControladorAbstracto<Perfil>{
         return FabricaConexion.getInstancia().getManejadorEntidades().createEntityManager();
     }
     
-    //metodo para filtar rol por estados (idEstado = 3 para estado graduado)
+    //metodo para filtar por estados (idEstado = 3 para estado graduado, idEstado = 1 para estados de candidatos)
     public List<Perfil> filtrarPerfilPorEstado(Integer filtroId) {
         EntityManager em = obtenerManejadorEntidades();
         try {

@@ -75,8 +75,6 @@ public class Alumno implements Serializable {
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Usuario usuIdFk;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluIdFk", fetch = FetchType.EAGER)
-    private List<DetAluActseleccion> detAluActseleccionList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "aluIdFk", fetch = FetchType.EAGER)
     private List<DetAluTarea> detAluTareaList;
 
     public Alumno() {
@@ -180,14 +178,6 @@ public class Alumno implements Serializable {
 
     public void setUsuIdFk(Usuario usuIdFk) {
         this.usuIdFk = usuIdFk;
-    }
-
-    public List<DetAluActseleccion> getDetAluActseleccionList() {
-        return detAluActseleccionList;
-    }
-
-    public void setDetAluActseleccionList(List<DetAluActseleccion> detAluActseleccionList) {
-        this.detAluActseleccionList = detAluActseleccionList;
     }
 
     public List<DetAluTarea> getDetAluTareaList() {

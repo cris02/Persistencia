@@ -46,15 +46,15 @@ public class DetAluActseleccion implements Serializable {
     private String detAluActObservacion;
     @Column(name = "DET_ALU_ACT_DOCUMENTO_PRUEBA", length = 255)
     private String detAluActDocumentoPrueba;
+    @JoinColumn(name = "PER_ID_FK", referencedColumnName = "PER_ID_PK", nullable = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Perfil perIdFk;
     @JoinColumn(name = "EST_ACT_ID_FK", referencedColumnName = "EST_ACT_ID_PK", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private EstActividad estActIdFk;
     @JoinColumn(name = "ACT_SEL_ID_FK", referencedColumnName = "ACT_SEL_ID_PK", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private ActSeleccion actSelIdFk;
-    @JoinColumn(name = "ALU_ID_FK", referencedColumnName = "ALU_ID_PK", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    private Alumno aluIdFk;
 
     public DetAluActseleccion() {
     }
@@ -100,6 +100,14 @@ public class DetAluActseleccion implements Serializable {
         this.detAluActDocumentoPrueba = detAluActDocumentoPrueba;
     }
 
+    public Perfil getPerIdFk() {
+        return perIdFk;
+    }
+
+    public void setPerIdFk(Perfil perIdFk) {
+        this.perIdFk = perIdFk;
+    }
+
     public EstActividad getEstActIdFk() {
         return estActIdFk;
     }
@@ -114,14 +122,6 @@ public class DetAluActseleccion implements Serializable {
 
     public void setActSelIdFk(ActSeleccion actSelIdFk) {
         this.actSelIdFk = actSelIdFk;
-    }
-
-    public Alumno getAluIdFk() {
-        return aluIdFk;
-    }
-
-    public void setAluIdFk(Alumno aluIdFk) {
-        this.aluIdFk = aluIdFk;
     }
 
     @Override

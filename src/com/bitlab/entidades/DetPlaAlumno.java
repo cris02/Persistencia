@@ -44,7 +44,7 @@ public class DetPlaAlumno implements Serializable {
     @Column(name = "DET_PLA_ALU_ID_PK", nullable = false)
     private Integer detPlaAluIdPk;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "DET_PLA_ALU_SALARIO", precision = 4, scale = 2)
+    @Column(name = "DET_PLA_ALU_SALARIO", precision = 10, scale = 2)
     private BigDecimal detPlaAluSalario;
     @Column(name = "DET_PLA_ALU_EMPRESA", length = 125)
     private String detPlaAluEmpresa;
@@ -56,8 +56,8 @@ public class DetPlaAlumno implements Serializable {
     private String detPlaAluObservacion;
     @Column(name = "DET_PLA_ALU_TIPOPLAZA", length = 40)
     private String detPlaAluTipoplaza;
-    @JoinColumn(name = "PER_ID_FK", referencedColumnName = "PER_ID_PK", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @JoinColumn(name = "PER_ID_FK", referencedColumnName = "PER_ID_PK")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Perfil perIdFk;
     @JoinColumn(name = "EST_PLA_ID_FK", referencedColumnName = "EST_PLA_ID_PK", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
